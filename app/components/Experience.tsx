@@ -29,7 +29,7 @@ const Experience: React.FC = () => {
   ];
 
   const handleCompanyClick = (companyId: string) => {
-    setSelectedCompany(selectedCompany === companyId ? null : companyId);
+    setSelectedCompany(companyId);
   };
 
   const selectedExperience = experiences.find(exp => exp.id === selectedCompany);
