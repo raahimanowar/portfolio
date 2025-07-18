@@ -36,24 +36,23 @@ const Hero: React.FC = () => {
 
   return (
     <main 
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10 bg-black"
       role="main"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-5xl mx-auto w-full">
         {/* Main hero section */}
-        <div className="glass p-8 md:p-12">
+        <div className="p-8 md:p-12">
           <div className="flex flex-col items-center space-y-12">
             
             {/* Profile and greeting section */}
             <div className="flex items-center space-x-8">
               {/* Profile image */}
-              <div className="relative flex-shrink-0 group">
-                <div className="absolute -inset-1 bg-red-500 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+              <div className="relative flex-shrink-0">
                 <img
                   src="/images/pp.jpg"
                   alt="Raahim Anowar"
-                  className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover shadow-2xl border-2 border-white/20"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-gray-800"
                 />
               </div>
               
@@ -63,11 +62,11 @@ const Hero: React.FC = () => {
                   id="hero-heading"
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
                 >
-                  Hi, I'm <span className="text-red-400">Raahim</span> 👋
+                  Hi, I'm <span className="text-white bg-gray-800 px-2 py-1 rounded">Raahim</span> 👋
                 </h1>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                  <span className="text-red-400 text-sm sm:text-base font-medium">
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="text-gray-400 text-sm sm:text-base font-medium">
                     Available for work
                   </span>
                 </div>
@@ -76,9 +75,9 @@ const Hero: React.FC = () => {
 
             {/* Description section */}
             <section className="text-center max-w-3xl">
-              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
                 Software Engineer actively building 
-                <span className="text-red-400 font-semibold"> AI engineering projects</span> and 
+                <span className="text-white font-semibold"> AI engineering projects</span> and 
                 <span className="text-white font-semibold"> robust backend systems</span>.
               </p>
             </section>
@@ -90,7 +89,7 @@ const Hero: React.FC = () => {
                   <li key={index}>
                     <a 
                       href={social.href}
-                      className="text-slate-400 hover:text-red-400 transition-colors duration-300 p-2 rounded-lg"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 p-2"
                       aria-label={social.label}
                       target="_blank"
                       rel="noopener noreferrer"

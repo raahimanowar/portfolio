@@ -50,13 +50,13 @@ const ResponsiveNavbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full px-4 sm:px-6 lg:px-8 py-6 glass-surface relative z-50" role="navigation" aria-label="Main navigation">
+    <nav className="w-full px-4 sm:px-6 lg:px-8 py-6 bg-black border-b border-gray-800" role="navigation" aria-label="Main navigation">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Brand/Logo */}
         <div className="flex items-center">
           <Link 
             href="/" 
-            className="text-xl sm:text-2xl font-bold text-white tracking-wider hover:text-red-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
+            className="text-xl sm:text-2xl font-bold text-white tracking-wider hover:text-gray-300 transition-colors duration-200 focus:outline-none"
             aria-label="Go to homepage"
           >
             RAAHIM
@@ -70,7 +70,7 @@ const ResponsiveNavbar: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="btn-primary focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="btn-simple"
                 aria-label="Download resume"
               >
                 {item.label}
@@ -79,29 +79,18 @@ const ResponsiveNavbar: React.FC = () => {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-slate-300 hover:text-red-400 transition-colors duration-300 text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
+                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm uppercase tracking-wide focus:outline-none"
               >
                 {item.label}
               </button>
             )
           ))}
-          
-          {/* Theme toggle button */}
-          <button 
-            className="text-slate-400 hover:text-red-400 transition-colors duration-300 p-2 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg"
-            aria-label="Toggle dark/light theme"
-            type="button"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-          </button>
         </div>
 
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button 
-            className="text-slate-400 hover:text-red-400 p-2 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg transition-colors duration-300"
+            className="text-gray-400 hover:text-white p-2 focus:outline-none transition-colors duration-200"
             aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             onClick={handleMenuToggle}
             type="button"
@@ -119,14 +108,14 @@ const ResponsiveNavbar: React.FC = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[84px] glass z-50 overflow-hidden">
+        <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50 overflow-hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-8 px-4">
             {navigationItems.map((item) => (
               item.isButton ? (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="btn-primary px-8 py-3 text-base focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  className="btn-simple px-8 py-3 text-base"
                   onClick={closeMenu}
                   aria-label="Download resume"
                 >
@@ -136,7 +125,7 @@ const ResponsiveNavbar: React.FC = () => {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-slate-300 hover:text-red-400 transition-colors duration-300 px-4 py-3 text-xl uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 px-4 py-3 text-xl uppercase tracking-wide focus:outline-none"
                 >
                   {item.label}
                 </button>
