@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                   Hi, I'm <span className="text-white bg-gray-800 px-2 py-1 rounded">Raahim</span> 👋
                 </h1>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <div className="w-2 h-2 bg-green-500 rounded-full" />
                   <span className="text-gray-400 text-sm sm:text-base font-medium">
                     Available for work
                   </span>
