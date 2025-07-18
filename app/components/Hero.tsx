@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
                   id="hero-heading"
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
                 >
-                  Hi, I'm <span className="text-white bg-gray-800 px-2 py-1 rounded">Raahim</span> 👋
+                  Hi, I'm <span className="text-white">Raahim</span> 👋
                 </h1>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full" />
@@ -75,10 +75,8 @@ const Hero: React.FC = () => {
 
             {/* Description section */}
             <section className="text-center max-w-3xl">
-              <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
-                Software Engineer actively building 
-                <span className="text-white font-semibold"> AI engineering projects</span> and 
-                <span className="text-white font-semibold"> robust backend systems</span>.
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+                Software Engineer actively building AI engineering projects and robust backend systems.
               </p>
             </section>
 
@@ -89,7 +87,7 @@ const Hero: React.FC = () => {
                   <li key={index}>
                     <a 
                       href={social.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 p-2"
+                      className="text-gray-400 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:scale-110 transition-all duration-300"
                       aria-label={social.label}
                       target="_blank"
                       rel="noopener noreferrer"

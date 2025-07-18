@@ -70,16 +70,18 @@ const ResponsiveNavbar: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="btn-simple"
+                className="bg-transparent text-white border-2 border-white px-6 py-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wide font-bold focus:outline-none"
                 aria-label="Download resume"
               >
-                {item.label}
+                <span className="hover:scale-110 transition-transform duration-300 inline-block">
+                  {item.label}
+                </span>
               </Link>
             ) : (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm uppercase tracking-wide focus:outline-none"
+                className="text-gray-300 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wide font-semibold focus:outline-none"
               >
                 {item.label}
               </button>
@@ -115,17 +117,19 @@ const ResponsiveNavbar: React.FC = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="btn-simple px-8 py-3 text-base"
+                  className="bg-transparent text-white border-2 border-white px-8 py-3 rounded-full hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-base uppercase tracking-wide font-bold focus:outline-none"
                   onClick={closeMenu}
                   aria-label="Download resume"
                 >
-                  {item.label}
+                  <span className="hover:scale-110 transition-transform duration-300 inline-block">
+                    {item.label}
+                  </span>
                 </Link>
               ) : (
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-gray-400 hover:text-white transition-colors duration-200 px-4 py-3 text-xl uppercase tracking-wide focus:outline-none"
+                  className="text-gray-300 hover:text-white transition-colors duration-300 px-4 py-3 text-xl uppercase tracking-wide font-semibold focus:outline-none"
                 >
                   {item.label}
                 </button>
