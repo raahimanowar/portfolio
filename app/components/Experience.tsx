@@ -55,7 +55,7 @@ const Experience: React.FC = () => {
                   onClick={() => handleCompanyClick(experience.id)}
                   className={`w-full text-left px-6 py-4 transition-colors duration-200 border-l-2 -ml-0.5 ${
                     selectedCompany === experience.id
-                      ? 'bg-gray-800 border-white text-white'
+                      ? 'bg-gray-900 border-white text-white'
                       : 'border-transparent text-gray-400 hover:text-white'
                   }`}
                 >
@@ -82,7 +82,7 @@ const Experience: React.FC = () => {
                     <div>
                       <h2 className="text-2xl font-bold text-white mb-1">
                         {selectedExperience.role} 
-                        <span className="text-gray-400"> @ {selectedExperience.company}</span>
+                        <span className="font-normal italic text-gray-400"> @ {selectedExperience.company}</span>
                       </h2>
                       <p className="text-gray-400 font-medium text-sm">
                         {selectedExperience.duration}
