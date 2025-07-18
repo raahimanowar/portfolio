@@ -13,8 +13,8 @@ const ResponsiveNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const navigationItems: NavigationItem[] = [
-    { href: '#projects', label: 'projects' },
     { href: '#experience', label: 'experience' },
+    { href: '#projects', label: 'projects' },
     { href: '#contact', label: 'contact' },
     { href: '/resume', label: 'resume', isButton: true }
   ];
