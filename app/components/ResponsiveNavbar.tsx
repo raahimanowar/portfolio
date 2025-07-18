@@ -13,9 +13,9 @@ const ResponsiveNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const navigationItems: NavigationItem[] = [
-    { href: '/projects', label: 'projects' },
-    { href: '/experience', label: 'experience' },
-    { href: '/contact', label: 'contact' },
+    { href: '#projects', label: 'projects' },
+    { href: '#experience', label: 'experience' },
+    { href: '#contact', label: 'contact' },
     { href: '/resume', label: 'resume', isButton: true }
   ];
 
@@ -39,6 +39,16 @@ const ResponsiveNavbar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    closeMenu();
+  };
+
   return (
     <nav className="w-full px-4 sm:px-6 lg:px-8 py-6 bg-black border-b border-gray-800" role="navigation" aria-label="Main navigation">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -56,18 +66,24 @@ const ResponsiveNavbar: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navigationItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={
-                item.isButton
-                  ? "bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
-                  : "text-gray-400 hover:text-white transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
-              }
-              {...(item.isButton && { 'aria-label': 'Download resume' })}
-            >
-              {item.label}
-            </Link>
+            item.isButton ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
+                aria-label="Download resume"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="text-gray-400 hover:text-white transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+              >
+                {item.label}
+              </button>
+            )
           ))}
           
           {/* Theme toggle button */}
@@ -106,19 +122,25 @@ const ResponsiveNavbar: React.FC = () => {
         <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50 overflow-hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-6 px-4">
             {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={
-                  item.isButton
-                    ? "bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
-                    : "text-gray-400 hover:text-white transition-colors px-2 py-3 text-lg uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
-                }
-                onClick={closeMenu}
-                {...(item.isButton && { 'aria-label': 'Download resume' })}
-              >
-                {item.label}
-              </Link>
+              item.isButton ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
+                  onClick={closeMenu}
+                  aria-label="Download resume"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-gray-400 hover:text-white transition-colors px-2 py-3 text-lg uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
           </div>
         </div>
