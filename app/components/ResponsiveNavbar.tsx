@@ -92,14 +92,14 @@ const ResponsiveNavbar: React.FC = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50">
-          <div className="flex flex-col space-y-6 px-4 pt-8">
+          <div className="flex flex-col items-center justify-center h-full space-y-6 px-4">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={
                   item.isButton
-                    ? "bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-base uppercase tracking-wide w-fit focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
+                    ? "bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
                     : "text-gray-400 hover:text-white transition-colors px-2 py-3 text-lg uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
                 }
                 onClick={closeMenu}
