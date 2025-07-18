@@ -50,13 +50,13 @@ const ResponsiveNavbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full px-4 sm:px-6 lg:px-8 py-6 bg-black border-b border-gray-800" role="navigation" aria-label="Main navigation">
+    <nav className="w-full px-4 sm:px-6 lg:px-8 py-6 glass-surface relative z-50" role="navigation" aria-label="Main navigation">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Brand/Logo */}
         <div className="flex items-center">
           <Link 
             href="/" 
-            className="text-xl sm:text-2xl font-bold text-white tracking-wider hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+            className="text-xl sm:text-2xl font-bold text-white tracking-wider hover:text-red-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
             aria-label="Go to homepage"
           >
             RAAHIM
@@ -70,7 +70,7 @@ const ResponsiveNavbar: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
+                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2.5 rounded-lg transition-colors duration-300 font-medium text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400"
                 aria-label="Download resume"
               >
                 {item.label}
@@ -79,7 +79,7 @@ const ResponsiveNavbar: React.FC = () => {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-400 hover:text-white transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+                className="text-slate-300 hover:text-red-400 transition-colors duration-300 text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
               >
                 {item.label}
               </button>
@@ -88,7 +88,7 @@ const ResponsiveNavbar: React.FC = () => {
           
           {/* Theme toggle button */}
           <button 
-            className="text-gray-300 hover:text-white transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            className="text-slate-400 hover:text-red-400 transition-colors duration-300 p-2 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg"
             aria-label="Toggle dark/light theme"
             type="button"
           >
@@ -101,7 +101,7 @@ const ResponsiveNavbar: React.FC = () => {
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button 
-            className="text-gray-400 hover:text-white p-1 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
+            className="text-slate-400 hover:text-red-400 p-2 focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg transition-colors duration-300"
             aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             onClick={handleMenuToggle}
             type="button"
@@ -119,14 +119,14 @@ const ResponsiveNavbar: React.FC = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50 overflow-hidden">
-          <div className="flex flex-col items-center justify-center h-full space-y-6 px-4">
+        <div className="md:hidden fixed inset-0 top-[84px] glass z-50 overflow-hidden">
+          <div className="flex flex-col items-center justify-center h-full space-y-8 px-4">
             {navigationItems.map((item) => (
               item.isButton ? (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black"
+                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg transition-colors duration-300 font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400"
                   onClick={closeMenu}
                   aria-label="Download resume"
                 >
@@ -136,7 +136,7 @@ const ResponsiveNavbar: React.FC = () => {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-gray-400 hover:text-white transition-colors px-2 py-3 text-lg uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+                  className="text-slate-300 hover:text-red-400 transition-colors duration-300 px-4 py-3 text-xl uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 rounded-sm"
                 >
                   {item.label}
                 </button>

@@ -36,67 +36,72 @@ const Hero: React.FC = () => {
 
   return (
     <main 
-      className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10"
       role="main"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-5xl mx-auto w-full">
-        {/* Main hero section with horizontal layout */}
-        <div className="flex flex-col items-center space-y-12">
-          
-          {/* Profile and greeting section */}
-          <div className="flex items-center space-x-8">
-            {/* Profile image */}
-            <div className="relative flex-shrink-0">
-              <img
-                src="/images/pp.jpg"
-                alt="Raahim Anowar"
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover shadow-lg"
-              />
-            </div>
+        {/* Main hero section */}
+        <div className="glass p-8 md:p-12">
+          <div className="flex flex-col items-center space-y-12">
             
-            {/* Text content */}
-            <div className="text-left">
-              <h1 
-                id="hero-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3"
-              >
-                Hi, I'm Raahim 👋
-              </h1>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full" />
-                <span className="text-green-400 text-sm sm:text-base font-medium">
-                  Available for work
-                </span>
+            {/* Profile and greeting section */}
+            <div className="flex items-center space-x-8">
+              {/* Profile image */}
+              <div className="relative flex-shrink-0 group">
+                <div className="absolute -inset-1 bg-red-500 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                <img
+                  src="/images/pp.jpg"
+                  alt="Raahim Anowar"
+                  className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover shadow-2xl border-2 border-white/20"
+                />
+              </div>
+              
+              {/* Text content */}
+              <div className="text-left">
+                <h1 
+                  id="hero-heading"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
+                >
+                  Hi, I'm <span className="text-red-400">Raahim</span> 👋
+                </h1>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <span className="text-red-400 text-sm sm:text-base font-medium">
+                    Available for work
+                  </span>
+                </div>
               </div>
             </div>
+
+            {/* Description section */}
+            <section className="text-center max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
+                Software Engineer actively building 
+                <span className="text-red-400 font-semibold"> AI engineering projects</span> and 
+                <span className="text-white font-semibold"> robust backend systems</span>.
+              </p>
+            </section>
+
+            {/* Social links */}
+            <nav aria-label="Social media links" className="mt-8">
+              <ul className="flex items-center justify-center space-x-6 sm:space-x-8">
+                {socialLinks.map((social, index) => (
+                  <li key={index}>
+                    <a 
+                      href={social.href}
+                      className="text-slate-400 hover:text-red-400 transition-colors duration-300 p-2 rounded-lg"
+                      aria-label={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.icon}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
-
-          {/* Description section */}
-          <section className="text-center max-w-3xl">
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-              Software Engineer actively building AI engineering projects and robust backend systems.
-            </p>
-          </section>
-
-          {/* Social links */}
-          <nav aria-label="Social media links" className="mt-8">
-            <ul className="flex items-center justify-center space-x-6 sm:space-x-8">
-              {socialLinks.map((social, index) => (
-                <li key={index}>
-                  <a 
-                    href={social.href}
-                    className="text-gray-500 hover:text-white transition-colors duration-300 transform hover:scale-110"
-                    aria-label={social.label}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.icon}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </div>
     </main>

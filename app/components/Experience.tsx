@@ -35,76 +35,78 @@ const Experience: React.FC = () => {
   const selectedExperience = experiences.find(exp => exp.id === selectedCompany);
 
   return (
-    <section id="experience" className="min-h-screen bg-black text-white px-4 sm:px-6 lg:px-8 py-16 flex flex-col justify-center">
+    <section id="experience" className="min-h-screen px-4 sm:px-6 lg:px-8 py-16 flex flex-col justify-center relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Work Experience
           </h1>
-          <div className="w-full h-px bg-gray-700"></div>
+          <div className="w-full h-px bg-slate-700"></div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 flex-1">
-          {/* Companies List */}
-          <div className="lg:col-span-2 space-y-0 border-l-2 border-gray-700">
-            {experiences.map((experience) => (
-              <button
-                key={experience.id}
-                onClick={() => handleCompanyClick(experience.id)}
-                className={`w-full text-left px-6 py-4 transition-all duration-300 border-l-2 -ml-0.5 ${
-                  selectedCompany === experience.id
-                    ? 'bg-gray-900/30 border-red-400 text-red-400'
-                    : 'border-transparent text-gray-400 hover:bg-gray-900/20 hover:text-white'
+        <div className="glass p-8">
+          <div className="grid lg:grid-cols-5 gap-8 flex-1">
+            {/* Companies List */}
+            <div className="lg:col-span-2 space-y-0 border-l-2 border-slate-700">
+              {experiences.map((experience) => (
+                <button
+                  key={experience.id}
+                  onClick={() => handleCompanyClick(experience.id)}
+                  className={`w-full text-left px-6 py-4 transition-colors duration-300 border-l-2 -ml-0.5 ${
+                    selectedCompany === experience.id
+                      ? 'bg-white/5 border-red-400 text-red-400'
+                      : 'border-transparent text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium">
+                      {experience.company}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Experience Details */}
+            <div className="lg:col-span-3 pl-8">
+              <div 
+                className={`transition-opacity duration-300 ${
+                  selectedExperience 
+                    ? 'opacity-100' 
+                    : 'opacity-0'
                 }`}
               >
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">
-                    {experience.company}
-                  </span>
-                </div>
-              </button>
-            ))}
-          </div>
+                {selectedExperience && (
+                  <div className="space-y-6">
+                    <div>
+                      <h2 className="text-2xl font-bold text-white mb-1">
+                        {selectedExperience.role} 
+                        <span className="text-red-400"> @ {selectedExperience.company}</span>
+                      </h2>
+                      <p className="text-slate-400 font-medium text-sm">
+                        {selectedExperience.duration}
+                      </p>
+                    </div>
 
-          {/* Experience Details */}
-          <div className="lg:col-span-3 pl-8">
-            <div 
-              className={`transition-all duration-500 ease-in-out ${
-                selectedExperience 
-                  ? 'opacity-100 transform translate-y-0' 
-                  : 'opacity-0 transform translate-y-4'
-              }`}
-            >
-              {selectedExperience && (
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-1">
-                      {selectedExperience.role} 
-                      <span className="text-red-400"> @ {selectedExperience.company}</span>
-                    </h2>
-                    <p className="text-gray-400 font-medium text-sm">
-                      {selectedExperience.duration}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    {selectedExperience.responsibilities.map((responsibility, index) => (
-                      <div 
-                        key={index} 
-                        className="flex items-start space-x-4"
-                      >
-                        <div className="flex-shrink-0 mt-2">
-                          <div className="w-1 h-1 bg-red-400 rounded-full"></div>
+                    <div className="space-y-4">
+                      {selectedExperience.responsibilities.map((responsibility, index) => (
+                        <div 
+                          key={index} 
+                          className="flex items-start space-x-4"
+                        >
+                          <div className="flex-shrink-0 mt-2">
+                            <div className="w-1 h-1 bg-red-400 rounded-full"></div>
+                          </div>
+                          <p className="text-slate-300 leading-relaxed text-sm">
+                            {responsibility}
+                          </p>
                         </div>
-                        <p className="text-gray-300 leading-relaxed text-sm">
-                          {responsibility}
-                        </p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
