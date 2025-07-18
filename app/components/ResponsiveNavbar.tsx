@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface NavigationItem {
   href: string;
@@ -18,6 +18,18 @@ const ResponsiveNavbar: React.FC = () => {
     { href: '/contact', label: 'contact' },
     { href: '/resume', label: 'resume', isButton: true }
   ];
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(prev => !prev);
@@ -91,7 +103,7 @@ const ResponsiveNavbar: React.FC = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50">
+        <div className="md:hidden fixed inset-0 top-[84px] bg-black z-50 overflow-hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-6 px-4">
             {navigationItems.map((item) => (
               <Link
