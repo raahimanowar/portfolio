@@ -70,7 +70,7 @@ const ResponsiveNavbar: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2.5 rounded-lg transition-colors duration-300 font-medium text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="btn-primary focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 aria-label="Download resume"
               >
                 {item.label}
@@ -126,7 +126,7 @@ const ResponsiveNavbar: React.FC = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg transition-colors duration-300 font-medium text-base uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400"
+                  className="btn-primary px-8 py-3 text-base focus:outline-none focus:ring-2 focus:ring-cyan-400"
                   onClick={closeMenu}
                   aria-label="Download resume"
                 >
