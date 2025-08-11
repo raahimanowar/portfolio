@@ -15,15 +15,28 @@ const Experience: React.FC = () => {
 
   const experiences: ExperienceItem[] = [
     {
+      id: 'company2',
+      company: 'DSAP International',
+      role: 'Software Engineer',
+      duration: 'August 2025 - Present',
+      responsibilities: [
+        'Developing and maintaining software applications using Python.',
+        'Collaborating with team members to design and implement new features.',
+        'Testing and debugging software applications to ensure they meet quality standards.',
+        'Participating in code reviews and providing feedback to team members.',
+        'Participating in team meetings and providing updates on project progress.',
+      ]
+    },
+    {
       id: 'company1',
       company: 'The Codebender',
       role: 'Software Engineer Fellow',
       duration: 'February 2024 - Present',
       responsibilities: [
-        'Built and deployed several full-stack AI apps using Next.js, TypeScript, OpenAI, Gemini, Mistral and Pinecone.',
-        'Worked closely with a senior software engineer who guided me on writing clean, maintainable code and building scalable applications.',
-        'Gained hands-on experience working with AI APIs, vector databases, and deploying projects to production.',
-        'Collaborated with other engineers through code reviews, brainstorming sessions, and team projects.'
+        'Developed and launched multiple robust full-stack AI applications utilizing Next.js, TypeScript, OpenAI, Gemini, Mistral, and Pinecone, accelerating delivery of production-ready solutions.',
+        'Engineered and integrated advanced AI APIs and vector databases, enabling intelligent features and real-time data retrieval for end-users; successfully deployed and monitored projects in live environments.',
+        'Collaborated directly with a senior software engineer, adopting industry best practices for clean, maintainable, and scalable codebases, which improved project efficiency and team code quality.',
+        'Actively participated in cross-functional code reviews, brainstorming sessions, and agile team projects, fostering a culture of continuous improvement and collective problem-solving.',
       ]
     },
   ];
